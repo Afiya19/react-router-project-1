@@ -4,6 +4,8 @@ import Home from "./components/Home"
 import About from "./components/About"
 import BookList from "./components/BookList"
 import Book from "./components/Book"
+import NotFound from "./components/NotFound"
+import NewBook from "./components/NewBook"
 
 function App() {
 
@@ -16,9 +18,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
-        <Route path="/books" element={<BookList/>}/>
-        <Route path="/books/:id" element={<Book/>}/>
-        <Route/>
+        <Route path="/books">
+          <Route index element={<BookList/>}/>
+          <Route path=":id" element={<Book/>}/>
+          <Route path="New" element={<NewBook/>}/>
+        </Route>
+        {/* <Route path="/books" element={<BookList/>}/>
+        <Route path="/books/:id" element={<Book/>}/> */}
+        <Route path="*" element={<NotFound/>}/>
         <Route/>
       </Routes>
     </>
