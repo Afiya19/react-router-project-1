@@ -1,4 +1,4 @@
-import {Link, Routes, Route, useRoutes} from "react-router-dom"
+import {Link, Routes, Route, useRoutes, useLocation} from "react-router-dom"
 // import './App.css'
 import Home from "./components/Home"
 import About from "./components/About"
@@ -24,6 +24,7 @@ function App() {
       element:<About/>
     }
   ])
+  const location = useLocation();
 
   return (
     <>
@@ -35,6 +36,7 @@ function App() {
       <li><Link to="/">Home</Link></li>
       <li><Link to="/about">About</Link></li>
     </nav>
+   <h2>{location.state}</h2> 
       <Routes>
         {/* <Route path="/" element={<Home/>}/> */}
         {/* <Route path="/about" element={<About/>}/> */}
